@@ -44,6 +44,53 @@ namespace Compiladores_Clase.Util
             return Char.IsLetterOrDigit(caracter,0);
         }
 
+        public static bool EsSignoSlash(string caracter)
+        {
 
+            return "/".Equals(caracter);
+
+        }
+        public static bool EsSignoAsterisco(string caracter)
+        {
+
+            return "*".Equals(caracter);
+
+        }
+        public static bool EsSignoPorcentaje(string caracter)
+        {
+
+            return "%".Equals(caracter);
+
+        }
+        public static bool EsSignoParentesisA(string caracter)
+        {
+
+            return "(".Equals(caracter);
+
+        }
+        public static bool EsSignoParentesisC(string caracter)
+        {
+
+            return ")".Equals(caracter);
+
+        }
+        public static bool EsSignoIgual(string caracter)
+        {
+
+            return "=".Equals(caracter);
+
+        }
+        public static bool EsSignoSuma(string caracter)
+        {
+
+            return "+".Equals(caracter);
+
+        }
+        public static bool EsSignoResta(string caracter)
+        {
+
+            return "-".Equals(caracter);
+
+        }
     }
 }

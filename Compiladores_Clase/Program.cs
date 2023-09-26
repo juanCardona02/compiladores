@@ -12,19 +12,20 @@ namespace Compiladores_Clase
     {
         static void Main(string[] args)
         {
-
             DataCache.AgregarLinea("");
-            DataCache.AgregarLinea("Segunda linea  ");
-            DataCache.AgregarLinea("5 3  2  1");
+            DataCache.AgregarLinea("Segunda Línea");
+            DataCache.AgregarLinea("5 + 3 + 2 + 1");
 
-            AnalizadorLexico analizadorLex= new AnalizadorLexico();
+            AnalizadorLexico analex = new AnalizadorLexico();
+            ComponenteLexico componente = analex.DevolverSiguienteComponente();
 
-            string lexema = analizadorLex.DevolverSiguienteComponenete();
             do
             {
-                lexema = analizadorLex.DevolverSiguienteComponenete();
-            }
-            while (!UtilTexto.EsFinArchivo(lexema));
+                Console.WriteLine(componente.ToString());
+                componente = analex.DevolverSiguienteComponente();
+
+            } while (!CategoriaGramatical.FIN_DE_ARCHIVO.Equals(componente.Categoria));
+            Console.WriteLine(componente.ToString());
         }
     }
 }
