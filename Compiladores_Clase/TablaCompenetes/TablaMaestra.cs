@@ -9,11 +9,16 @@ namespace Compiladores_Clase.TablaCompenetes
 {
     public class TablaMaestra
     {
+        private static TablaMaestra TABLA_MAESTRA = new TablaMaestra();
         private TablaSimbolos tablaSimbolos = new TablaSimbolos();
         private TablaLiterales tablaLiterales = new TablaLiterales();
         private TablaPalabrasReservadas tablaPalabrasReservadas = new TablaPalabrasReservadas();
         private TablaDummies tablaDummies = new TablaDummies();
 
+        public static TablaMaestra ObtenerTablaMaestra()
+        {
+            return TABLA_MAESTRA;
+        }
         public void Limpiar()
         {
             tablaDummies.Limpiar();

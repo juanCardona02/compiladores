@@ -44,10 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnalisisLexico\AnalizadorLexico.cs" />
+    <Compile Include="AnalisisLexico\CategoriaGramatical.cs" />
+    <Compile Include="AnalisisLexico\ComponenteLexico.cs" />
+    <Compile Include="AnalisisLexico\TipoComponente.cs" />
     <Compile Include="DataCache.cs" />
+    <Compile Include="GestorErrores\CategoriaErrror.cs" />
+    <Compile Include="GestorErrores\Error.cs" />
+    <Compile Include="GestorErrores\ManejadorErrores.cs" />
+    <Compile Include="GestorErrores\TipoError.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TablaCompenetes\TablaDummies.cs" />
+    <Compile Include="TablaCompenetes\TablaLiterales.cs" />
+    <Compile Include="TablaCompenetes\TablaMaestra.cs" />
+    <Compile Include="TablaCompenetes\TablaPalabrasReservadas.cs" />
+    <Compile Include="TablaCompenetes\TablaSimbolos.cs" />
     <Compile Include="Util\UtilTexto.cs" />
   </ItemGroup>
   <ItemGroup>

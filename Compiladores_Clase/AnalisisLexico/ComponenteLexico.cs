@@ -48,20 +48,24 @@ namespace Compiladores_Clase.AnalisisLexico
         {
             return new ComponenteLexico(numeroLinea, posicionInicial, lexema.Length, lexema, categoria, TipoComponente.PALABRA_RESERVADA);
         }
+
+
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("-------------------------------INICIO-------------------------------");
-            sb.Append("Tipo: ").Append(Tipo).Append("\r\n");
-            sb.Append("Categoria: ").Append(Categoria).Append("\r\n");
-            sb.Append("Lexema: ").Append(Lexema).Append("\r\n");
-            sb.Append("Número de línea: ").Append(NumeroLinea).Append("\r\n");
-            sb.Append("Posicion Inicia: ").Append(PosicionInicial).Append("\r\n");
-            sb.Append("Posicion Final: ").Append(PosicionFinal).Append("\r\n");
-            sb.Append("-------------------------------FIN-------------------------------");
-            return sb.ToString();
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("-------------------------------INICIO-------------------------------");
+                sb.Append("Tipo: ").Append(Tipo).Append("\r\n");
+                sb.Append("Categoria: ").Append(Categoria).Append("\r\n");
+                sb.Append("Lexema: ").Append(Lexema).Append("\r\n");
+                sb.Append("Número de línea: ").Append(NumeroLinea).Append("\r\n");
+                sb.Append("Posicion Inicia: ").Append(PosicionInicial).Append("\r\n");
+                sb.Append("Posicion Final: ").Append(PosicionFinal).Append("\r\n");
+                sb.Append("-------------------------------FIN-------------------------------");
+                return sb.ToString();
+            }
+
+
         }
-
-
     }
 }
