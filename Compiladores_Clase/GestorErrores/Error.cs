@@ -45,6 +45,11 @@ namespace Compiladores_Clase.GestorErrores
             return new Error(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, falla, Causa, solucion, TipoError.LEXICO, CategoriaErrror.STOPPER);
 
         }
+        public static Error CREAR_ERROR_SINTACTICO_STOPPER(int numeroLinea, int posicionInicial, string lexema, string falla, string Causa, string solucion)
+        {
+            return new Error(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, falla, Causa, solucion, TipoError.LEXICO, CategoriaErrror.STOPPER);
+
+        }
         public int NumeroLinea { get => numeroLinea; set => numeroLinea = value; }
         public int PosicionInicial { get => posicionInicial; set => posicionInicial = value; }
         public int PosicionFinal { get => posicionFinal; set => posicionFinal = value; }
@@ -55,7 +60,16 @@ namespace Compiladores_Clase.GestorErrores
         public TipoError Tipo { get => tipo; set => tipo = value; }
         public CategoriaErrror Categoria { get => categoria; set => categoria = value; }
 
+        public static Error CrearErrorSintacticoStopper(int numeroLinea, int posicionInicial, string lexema, string falla, string causa, string solucion)
+        {
 
+
+
+            return new Error(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, falla, causa, solucion, TipoError.SINTACTICO, CategoriaErrror.STOPPER);
+
+
+
+        }
         public override string ToString()
         {
 

@@ -428,13 +428,13 @@ namespace Compiladores_Clase.AnalisisLexico
         {
             posicionInicial = puntero - lexema.Length;
             Error error = Error.CREAR_ERROR_LEXICO_RECUPERABLE(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
-            ManejadorErrores.ObtenerManejadorErrores().ReportarError(error);
+            ManejadorErrores.ObtenerManejadorDeErrores().ReportarError(error);
 
         } private void ReportarErrorLexicoStopper()
         {
             posicionInicial = puntero - lexema.Length;
             Error error = Error.CREAR_ERROR_LEXICO_STOPPER(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
-            ManejadorErrores.ObtenerManejadorErrores().ReportarError(error);
+            ManejadorErrores.ObtenerManejadorDeErrores().ReportarError(error);
 
         }
 
