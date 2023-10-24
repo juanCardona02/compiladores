@@ -113,7 +113,7 @@ namespace Compiladores_Clase.AnalisisSintactico
                 else
                 {
                     falla = "Categoría gramática inválida...";
-                    causa = "Se esperaba PARÉNTESIS CIERRA, se recibió '" + Componente.Categoria;
+                    causa = "Se esperaba PARÉNTESIS CIERRA, se recibió  " + Componente.Categoria;
                     solucion = "Asegúrese que en la posición esperada se encuentre PARÉNTESIS CIERRA...";
                     ReportarErrorSintacticoStopper();
                 }
@@ -121,7 +121,7 @@ namespace Compiladores_Clase.AnalisisSintactico
             else
             {
                 falla = "Categoría gramática inválida...";
-                causa = "Se esperaba NUMERO ENTERO, NUMERO DECIMAL o PARÉNTESIS ABRE, se recibió '" + Componente.Categoria;
+                causa = "Se esperaba NUMERO ENTERO, NUMERO DECIMAL o PARÉNTESIS ABRE, se recibió  " + Componente.Categoria;
                 solucion = "Asegúrese que en la posición esperada se encuentre NUMERO ENTERO, NUMERO DECIMAL o PARÉNTESIS ABRE...";
                 ReportarErrorSintacticoStopper();
             }

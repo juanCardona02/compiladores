@@ -52,20 +52,16 @@ namespace Compiladores_Clase.AnalisisLexico
 
         public override string ToString()
         {
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("-------------------------------INICIO-------------------------------");
-                sb.Append("Tipo: ").Append(Tipo).Append("\r\n");
-                sb.Append("Categoria: ").Append(Categoria).Append("\r\n");
-                sb.Append("Lexema: ").Append(Lexema).Append("\r\n");
-                sb.Append("Número de línea: ").Append(NumeroLinea).Append("\r\n");
-                sb.Append("Posicion Inicia: ").Append(PosicionInicial).Append("\r\n");
-                sb.Append("Posicion Final: ").Append(PosicionFinal).Append("\r\n");
-                sb.Append("-------------------------------FIN-------------------------------");
-                return sb.ToString();
-            }
-
-
+            StringBuilder sb = new StringBuilder();
+            sb.Append("-------------------------------INICIO-------------------------------\r\n");
+            sb.Append("Tipo: ").Append(Tipo).Append("\r\n");
+            sb.Append("Categoria: ").Append(Categoria).Append("\r\n");
+            sb.Append("Lexema: ").Append(Lexema).Append("\r\n");
+            sb.Append("Número de línea: ").Append(NumeroLinea).Append("\r\n");
+            sb.Append("Posicion Inicia: ").Append(PosicionInicial).Append("\r\n");
+            sb.Append("Posicion Final: ").Append(PosicionFinal).Append("\r\n");
+            sb.Append("-------------------------------FIN-------------------------------\r\n");
+            return sb.ToString();
         }
     }
 }

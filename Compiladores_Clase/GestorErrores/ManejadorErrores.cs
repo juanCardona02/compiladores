@@ -73,7 +73,7 @@ namespace Compiladores_Clase.GestorErrores
         {
             return HayErrores(TipoError.GENERADOR_CODIGO_INTERMEDIO) || HayErrores(TipoError.OPTIMIZACION) || HayErrores(TipoError.GENERADOR_CODIGO_FINAL);
         }
-        public bool HayErroresCompilación()
+        public bool HayErroresCompilacion()
         {
             return HayErroresAnalisis() || HayErroresSintesis();
         }

@@ -1,4 +1,5 @@
 ﻿using Compiladores_Clase.GestorErrores;
+using Compiladores_Clase.TablaCompenetes;
 using Compiladores_Clase.Util;
 using System;
 using System.Collections.Generic;
@@ -117,6 +118,8 @@ namespace Compiladores_Clase.AnalisisLexico
                 else if ("q35".Equals(estadoActual)) { ProcesarEstado35(); }
                 else if ("q36".Equals(estadoActual)) { ProcesarEstado36(); }
             }
+
+            TablaMaestra.ObtenerTablaMaestra().Agregar(componente);
 
             return componente;
 
@@ -253,7 +256,7 @@ namespace Compiladores_Clase.AnalisisLexico
             {
                 lexema = caracterActual;
                 categoria = CategoriaGramatical.RESTA;
-            FormarComponenteLexicoLiteral();
+                FormarComponenteLexicoLiteral();
                 continuarAnalisis = false;
 
             }
@@ -286,23 +289,22 @@ namespace Compiladores_Clase.AnalisisLexico
             {
                 lexema = caracterActual;
                 categoria = CategoriaGramatical.MODULO;
-            FormarComponenteLexicoLiteral();
-            
+                FormarComponenteLexicoLiteral();
                 continuarAnalisis = false;
             }
             private void ProcesarEstado10()
             {
                 lexema = caracterActual;
                 categoria = CategoriaGramatical.PARENTESIS_ABRE;
-            FormarComponenteLexicoLiteral();
-            continuarAnalisis = false;
+                FormarComponenteLexicoLiteral();
+                continuarAnalisis = false;
             }
             private void ProcesarEstado11()
             {
                 lexema = caracterActual;
                 categoria = CategoriaGramatical.PARENTESIS_CIERRA;
-            FormarComponenteLexicoLiteral();
-            continuarAnalisis = false;
+                FormarComponenteLexicoLiteral();
+                continuarAnalisis = false;
             }
             private void ProcesarEstado12()
             {
@@ -350,31 +352,30 @@ namespace Compiladores_Clase.AnalisisLexico
                 ReportarErrorLexicoRecuperable();    
                 caracterActual = "0";
                 Concatenar();
-            categoria = CategoriaGramatical.NUMERO_DECIMAL;
-            FormarComponenteLexicoDummy();
+                categoria = CategoriaGramatical.NUMERO_DECIMAL;
+                FormarComponenteLexicoDummy();
                 continuarAnalisis = false;
             }
             private void ProcesarEstado18()
             {
             //SIMBOLO NO VÁLIDO
-
-            falla = "Simbolo no válido";
-            causa = "Se recibio simbolo no reconocido por el lenguaje " + caracterActual;
-            solucion = "Asegurese que en la posición esperada se encuentre un simbolo valido reconocido en el lenguaje";
-            ReportarErrorLexicoStopper();
+                DevolverPuntero();
+                falla = "Simbolo no válido";
+                causa = "Se recibio simbolo no reconocido por el lenguaje " + caracterActual;
+                solucion = "Asegurese que en la posición esperada se encuentre un simbolo valido reconocido en el lenguaje";
+                ReportarErrorLexicoStopper();
             }
             private void ProcesarEstado19()
             {
                 categoria = CategoriaGramatical.IGUAL_QUE;
-            FormarComponenteLexicoLiteral();
-           
+                FormarComponenteLexicoLiteral();
                 continuarAnalisis = false;
             }
             private void ProcesarEstado33()
             {
                 DevolverPuntero();
                 categoria = CategoriaGramatical.DIVISION;
-            FormarComponenteLexicoLiteral();
+                FormarComponenteLexicoLiteral();
                 continuarAnalisis = false;
             }
             private void ProcesarEstado34()
@@ -414,23 +415,24 @@ namespace Compiladores_Clase.AnalisisLexico
                 componente = ComponenteLexico.CrearSimbolo(numeroLineaActual, posicionInicial, lexema, categoria);
             }
 
-        private void FormarComponenteLexicoDummy()
-        {
-            posicionInicial = puntero - lexema.Length;
-            componente = ComponenteLexico.CrearDummy(numeroLineaActual, posicionInicial, lexema, categoria);
-        }
-        private void FormarComponenteLexicoLiteral()
-        {
-            posicionInicial = puntero - lexema.Length;
-            componente = ComponenteLexico.CrearLiteral(numeroLineaActual, posicionInicial, lexema, categoria);
-        }
+            private void FormarComponenteLexicoDummy()
+            {
+                posicionInicial = puntero - lexema.Length;
+                componente = ComponenteLexico.CrearDummy(numeroLineaActual, posicionInicial, lexema, categoria);
+            }
+            private void FormarComponenteLexicoLiteral()
+            {
+                posicionInicial = puntero - lexema.Length;
+                componente = ComponenteLexico.CrearLiteral(numeroLineaActual, posicionInicial, lexema, categoria);
+            }
         private void ReportarErrorLexicoRecuperable()
         {
             posicionInicial = puntero - lexema.Length;
             Error error = Error.CREAR_ERROR_LEXICO_RECUPERABLE(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
             ManejadorErrores.ObtenerManejadorDeErrores().ReportarError(error);
 
-        } private void ReportarErrorLexicoStopper()
+        }
+        private void ReportarErrorLexicoStopper()
         {
             posicionInicial = puntero - lexema.Length;
             Error error = Error.CREAR_ERROR_LEXICO_STOPPER(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
