@@ -432,6 +432,7 @@ namespace Compiladores_Clase.AnalisisLexico
             ManejadorErrores.ObtenerManejadorDeErrores().ReportarError(error);
 
         }
+
         private void ReportarErrorLexicoStopper()
         {
             posicionInicial = puntero - lexema.Length;

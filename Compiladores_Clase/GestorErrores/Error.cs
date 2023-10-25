@@ -64,11 +64,15 @@ namespace Compiladores_Clase.GestorErrores
         public static Error CrearErrorSintacticoStopper(int numeroLinea, int posicionInicial, string lexema, string falla, string causa, string solucion)
         {
 
-
-
             return new Error(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, falla, causa, solucion, TipoError.SINTACTICO, CategoriaErrror.STOPPER);
 
 
+
+        }
+
+        public static Error CREAR_ERROR_SEMANTICO_RECUPERABLE(int numeroLinea, int posicionInicial, string lexema, string falla, string causa, string solucion)
+        {
+            return new Error(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, falla, causa, solucion, TipoError.SEMANTICO, CategoriaErrror.RECUPERABLE);
 
         }
         public override string ToString()

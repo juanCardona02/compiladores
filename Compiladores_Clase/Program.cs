@@ -19,7 +19,7 @@ namespace Compiladores_Clase
             
                 DataCache.AgregarLinea("");
                 DataCache.AgregarLinea("");
-                DataCache.AgregarLinea("5 +5 +3-4/20*100");
+                DataCache.AgregarLinea("5*6/5*(4-3)*4/6+2");
 
                 AnalizadorSintactico anaSin = new AnalizadorSintactico();
 
@@ -27,7 +27,7 @@ namespace Compiladores_Clase
 
                 try
                 {
-                    string respuesta = anaSin.Analizar();
+                    string respuesta = anaSin.Analizar(true);
                     Console.WriteLine(respuesta);
                 }
                 catch (Exception ex)
@@ -46,7 +46,7 @@ namespace Compiladores_Clase
                 ImprimirErrores(TipoError.GENERADOR_CODIGO_FINAL);
 
 
-                Thread.Sleep(20000);
+                Thread.Sleep(2000000);
             }
             private static void ImprimirComponentes(TipoComponente tipo)
             {
